@@ -21,10 +21,9 @@
     <div class="nav-right">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search products..." />
-        <button onclick="searchProduct()">Search</button>
+        <button>Search</button>
       </div>
-      <!-- CART ICON TOP RIGHT -->
-      <div class="cart-icon" onclick="toggleCart()">
+      <div class="cart-icon">
         🛒 <span id="cart-count" class="cart-badge">0</span>
       </div>
     </div>
@@ -35,7 +34,7 @@
     <h3>🛒 Your Cart</h3>
     <ul id="cart-list"><li class="empty-msg">Your cart is empty.</li></ul>
     <p class="cart-total">Total: <strong id="cart-total">৳ 0</strong></p>
-    <button class="checkout-btn" onclick="alert('Order placed! Thank you 🎉')">Checkout</button>
+    <button class="checkout-btn">Checkout</button>
   </div>
 
   <!-- HERO -->
@@ -55,7 +54,7 @@
         <div class="card-body">
           <h3>Wireless Headphones</h3>
           <p class="price">৳ 2,500</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -64,7 +63,7 @@
         <div class="card-body">
           <h3>Smart Watch</h3>
           <p class="price">৳ 4,800</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -73,7 +72,7 @@
         <div class="card-body">
           <h3>Running Shoes</h3>
           <p class="price">৳ 1,900</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -82,7 +81,7 @@
         <div class="card-body">
           <h3>Gaming Laptop</h3>
           <p class="price">৳ 65,000</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -91,7 +90,7 @@
         <div class="card-body">
           <h3>Backpack</h3>
           <p class="price">৳ 1,200</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -100,7 +99,7 @@
         <div class="card-body">
           <h3>Bluetooth Speaker</h3>
           <p class="price">৳ 3,500</p>
-          <button class="cart-btn" onclick="addToCart(this)">Add to Cart</button>
+          <button class="cart-btn">Add to Cart</button>
         </div>
       </div>
 
@@ -119,80 +118,6 @@
   <footer>
     <p>&copy; 2025 ShopEasy. All rights reserved.</p>
   </footer>
-
-  <script>
-    // ---- SEARCH ----
-    function searchProduct() {
-      var input = document.getElementById("searchInput").value.toLowerCase();
-      var cards = document.querySelectorAll(".card");
-      cards.forEach(function(card) {
-        var title = card.querySelector("h3").innerText.toLowerCase();
-        card.style.display = title.includes(input) ? "block" : "none";
-      });
-    }
-
-    // ---- CART ----
-    var cartItems = [];
-
-    function addToCart(btn) {
-      var card  = btn.closest(".card");
-      var name  = card.querySelector("h3").innerText;
-      var price = parseInt(card.getAttribute("data-price"));
-
-      cartItems.push({ name: name, price: price });
-      updateCartUI();
-
-      btn.innerText = "✅ Added!";
-      btn.style.background = "green";
-      setTimeout(function() {
-        btn.innerText = "Add to Cart";
-        btn.style.background = "#ff6200";
-      }, 1500);
-    }
-
-    function updateCartUI() {
-      var countEl = document.getElementById("cart-count");
-      var listEl  = document.getElementById("cart-list");
-      var totalEl = document.getElementById("cart-total");
-
-      countEl.innerText = cartItems.length;
-
-      if (cartItems.length === 0) {
-        listEl.innerHTML = '<li class="empty-msg">Your cart is empty.</li>';
-        totalEl.innerText = "৳ 0";
-        return;
-      }
-
-      var html  = "";
-      var total = 0;
-      cartItems.forEach(function(item, i) {
-        total += item.price;
-        html += '<li>' + item.name + ' <span>৳ ' + item.price.toLocaleString() + '</span>'
-              + '<button class="remove-btn" onclick="removeItem(' + i + ')">✕</button></li>';
-      });
-      listEl.innerHTML = html;
-      totalEl.innerText = "৳ " + total.toLocaleString();
-    }
-
-    function removeItem(index) {
-      cartItems.splice(index, 1);
-      updateCartUI();
-    }
-
-    function toggleCart() {
-      var dropdown = document.getElementById("cart-dropdown");
-      dropdown.classList.toggle("hidden");
-    }
-
-    // Close cart if clicked outside
-    document.addEventListener("click", function(e) {
-      var dropdown = document.getElementById("cart-dropdown");
-      var cartIcon = document.querySelector(".cart-icon");
-      if (!dropdown.contains(e.target) && !cartIcon.contains(e.target)) {
-        dropdown.classList.add("hidden");
-      }
-    });
-  </script>
 
 </body>
 </html>
