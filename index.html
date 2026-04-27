@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ShopEasy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">🛒 ShopEasy</div>
 
@@ -19,37 +17,23 @@
     </ul>
 
     <div class="nav-right">
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search products..." />
-        <button>Search</button>
-      </div>
       <div class="cart-icon">
-        🛒 <span id="cart-count" class="cart-badge">0</span>
+        🛒 <span class="cart-badge">0</span>
       </div>
     </div>
   </nav>
 
-  <!-- CART DROPDOWN -->
-  <div id="cart-dropdown" class="cart-dropdown hidden">
-    <h3>🛒 Your Cart</h3>
-    <ul id="cart-list"><li class="empty-msg">Your cart is empty.</li></ul>
-    <p class="cart-total">Total: <strong id="cart-total">৳ 0</strong></p>
-    <button class="checkout-btn">Checkout</button>
-  </div>
-
-  <!-- HERO -->
   <section class="hero" id="home">
     <h1>Welcome to ShopEasy</h1>
     <p>Best products. Best price. Fast delivery all over Bangladesh.</p>
     <a href="#products" class="btn">Shop Now</a>
   </section>
 
-  <!-- PRODUCTS -->
   <section class="products" id="products">
     <h2>Our Products</h2>
     <div class="product-grid">
 
-      <div class="card" data-name="headphones" data-price="2500">
+      <div class="card">
         <img src="headphone.jpg" alt="Headphones" />
         <div class="card-body">
           <h3>Wireless Headphones</h3>
@@ -58,7 +42,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="watch" data-price="4800">
+      <div class="card">
         <img src="watch.jpg" alt="Watch" />
         <div class="card-body">
           <h3>Smart Watch</h3>
@@ -67,7 +51,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="shoes" data-price="1900">
+      <div class="card">
         <img src="shoe.jpg" alt="Shoes" />
         <div class="card-body">
           <h3>Running Shoes</h3>
@@ -76,7 +60,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="laptop" data-price="65000">
+      <div class="card">
         <img src="laptop.jpg" alt="Laptop" />
         <div class="card-body">
           <h3>Gaming Laptop</h3>
@@ -85,7 +69,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="bag" data-price="1200">
+      <div class="card">
         <img src="bag.jpg" alt="Bag" />
         <div class="card-body">
           <h3>Backpack</h3>
@@ -94,7 +78,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="speaker1" data-price="3500">
+      <div class="card">
         <img src="speaker.jpg" alt="Speaker" />
         <div class="card-body">
           <h3>Bluetooth Speaker</h3>
@@ -106,7 +90,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>📧 shopeasy@gmail.com</p>
@@ -114,7 +97,6 @@
     <p>📍 Chittagong, Bangladesh</p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 ShopEasy. All rights reserved.</p>
   </footer>
